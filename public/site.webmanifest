@@ -1,0 +1,43 @@
+{
+    "name": "Shawna Staff | Software Engineer",
+    "short_name": "Shawna Staff",
+    "description": "Software engineer specializing in full-stack development with expertise in React, TypeScript, Python, and .NET.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#0f172a",
+    "orientation": "portrait-primary",
+    "icons": [
+      {
+        "src": "/icon-192x192.png",
+        "type": "image/png",
+        "sizes": "192x192",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "/icon-512x512.png",
+        "type": "image/png",
+        "sizes": "512x512",
+        "purpose": "any maskable"
+      }
+    ],
+    "lang": "en-US",
+    "dir": "ltr",
+    "categories": ["portfolio", "development", "technology"],
+    "screenshots": [
+      {
+        "src": "/screenshot-desktop.png",
+        "sizes": "1280x720",
+        "type": "image/png",
+        "platform": "wide",
+        "label": "Shawna Staff Portfolio Desktop View"
+      },
+      {
+        "src": "/screenshot-mobile.png",
+        "sizes": "750x1334",
+        "type": "image/png",
+        "platform": "narrow",
+        "label": "Shawna Staff Portfolio Mobile View"
+      }
+    ]
+  }
