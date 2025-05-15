@@ -40,85 +40,99 @@ Type 'help' to see available commands.`,
       description: "Display available commands",
       action: () => ({
         isHtml: true,
-        output: `<pre>Available commands:
-    help        Display this help message
-    about       Learn about Shawna       
-    skills      View my technical skills 
-          projects    Browse my portfolio projects   
-    experience  View my work experience  
-     contact     Get my contact information
-    clear       Clear the terminal screen</pre>`,
+        output: `<pre class="py-2">Available commands:</pre>
+        <div class="flex justify-center w-full ml-5">
+          <table class="text-left">
+            <tr><td class=""><pre>help</pre></td><td><pre class="pl-10">Display this help message</pre></td></tr>
+            <tr><td class=""><pre>about</pre></td><td><pre class="pl-10">Learn about me</pre></td></tr>
+            <tr><td class=""><pre>skills</pre></td><td><pre class="pl-10">View my technical skills</pre></td></tr>
+            <tr><td class=""><pre>projects</pre></td><td><pre class="pl-10">Browse my portfolio projects</pre></td></tr>
+            <tr><td class=""><pre>experience</pre></td><td><pre class="pl-10">View my work experience</pre></td></tr>
+            <tr><td class=""><pre>contact</pre></td><td><pre class="pl-10">Get my contact information</pre></td></tr>
+            <tr><td class=""><pre>clear</pre></td><td><pre class="pl-10">Clear the terminal screen</pre></td></tr>
+          </table>
+        </div>`,
       }),
     },
     about: {
       description: "Learn about me",
       action: () => ({
         isHtml: true,
-        output: `<pre>
+        output: `<div class="flex justify-center w-full">
+<pre>
 Hi, I'm Shawna Staff! 👋
 
 I'm a software engineer with experience in:
 - Full-stack web development
-           - Mobile app development (React Native)
-- Python backend services   
-- .NET microservices        
-  - Data processing & automation
-</pre>`,
+- Mobile app development (React Native)
+- Python backend services
+- .NET microservices
+- Data processing & automation
+</pre>
+</div>`,
       }),
     },
     skills: {
       description: "View my technical skills",
       action: () => ({
         isHtml: true,
-        output: `<pre>
+        output: `<div class="flex justify-center w-full">
+<pre>
 Technical Skills:
 -----------------
 Languages: TypeScript, JavaScript, Python, C#
-   Frontend: React, React Native, NextJS, HTMX, CSS
-Backend: FastAPI, .NET, Node.js              
-Database: PostgreSQL, SQL, MongoDB, Firebase 
-Tools: Git, Docker, CI/CD                    
-</pre>`,
+Frontend:  React, React Native, NextJS, HTMX, CSS
+Backend:   FastAPI, .NET, Node.js
+Database:  PostgreSQL, SQL, MongoDB, Firebase
+Tools:     Git, Docker, CI/CD
+</pre>
+</div>`,
       }),
     },
     projects: {
       description: "Browse my portfolio projects",
       action: () => ({
         isHtml: true,
-        output: `<pre>
+        output: `<div class="flex justify-center w-full">
+<pre>
 Featured Projects:
 -----------------
 1. Python Setup App - SQLAlchemy-FastAPI-PostgreSQL project template
-   2. Personal Budgeting App - React Native financial tracking application
-3. CSV Cleaner - Python tool for data processing                    
-</pre>`,
+2. Personal Budgeting App - React Native financial tracking application
+3. CSV Cleaner - Python tool for data processing
+</pre>
+</div>`,
       }),
     },
     experience: {
       description: "View my work experience",
       action: () => ({
         isHtml: true,
-        output: `<pre>
+        output: `<div class="flex justify-center w-full">
+<pre>
 Work Experience:
 --------------
 Software Engineer - Present
 - Developing full-stack applications
 - Working with React, TypeScript, Python, and more
 - Implementing CI/CD pipelines and DevOps practices
-</pre>`,
+</pre>
+</div>`,
       }),
     },
     contact: {
       description: "Get my contact information",
       action: () => ({
         isHtml: true,
-        output: `<pre>
+        output: `<div class="flex justify-center w-full">
+<pre>
 Contact Information:
 ------------------
-Email: shawnastaff@gmail.com
-GitHub: https://github.com/ShawnaRStaff
+Email:    shawnastaff@gmail.com
+GitHub:   https://github.com/ShawnaRStaff
 LinkedIn: https://www.linkedin.com/in/shawnastaff/
-</pre>`,
+</pre>
+</div>`,
       }),
     },
     clear: {
@@ -207,6 +221,7 @@ LinkedIn: https://www.linkedin.com/in/shawnastaff/
       }
     } else if (e.key === "Tab") {
       e.preventDefault();
+      // Simple tab completion
       const partialCommand = input.toLowerCase();
       if (partialCommand) {
         const matches = Object.keys(COMMANDS).filter(
@@ -215,6 +230,7 @@ LinkedIn: https://www.linkedin.com/in/shawnastaff/
         if (matches.length === 1) {
           setInput(matches[0]);
         } else if (matches.length > 1) {
+          // Show completions
           setHistory((prev) => [
             ...prev,
             { type: "command", content: `visitor@portfolio:~$ ${input}` },
@@ -242,41 +258,39 @@ LinkedIn: https://www.linkedin.com/in/shawnastaff/
       {/* Terminal Content */}
       <div
         ref={terminalRef}
-        className="bg-gray-900 p-4 h-60 md:h-80 overflow-y-auto font-mono text-sm flex justify-center"
+        className="bg-gray-900 p-4 h-60 md:h-80 overflow-y-auto font-mono text-sm"
       >
-        <div className="w-full max-w-lg">
-          <div className="my-10">
-            {history.map((item, index) => (
-              <div
-                key={index}
-                className={`mb-1 ${
-                  item.type === "command"
-                    ? "text-purple-400 whitespace-pre"
-                    : item.type === "system"
-                    ? "text-cyan-400 whitespace-pre"
-                    : "text-gray-300"
-                }`}
-              >
-                {item.isHtml ? (
-                  <div dangerouslySetInnerHTML={{ __html: item.content }} />
-                ) : (
-                  item.content
-                )}
-              </div>
-            ))}
-          </div>
+        <div className="w-full">
+          {history.map((item, index) => (
+            <div
+              key={index}
+              className={`${
+                item.type === "command"
+                  ? "text-purple-400"
+                  : item.type === "system"
+                  ? "text-cyan-400"
+                  : "text-gray-300"
+              }`}
+            >
+              {item.isHtml ? (
+                <div dangerouslySetInnerHTML={{ __html: item.content }} />
+              ) : (
+                <div className="whitespace-pre-wrap">{item.content}</div>
+              )}
+            </div>
+          ))}
 
-          {/*Command Line */}
-          <div className="flex items-center text-purple-400 mt-1 pb-10">
-            <span className="flex-shrink-0">visitor@portfolio:~$</span>
-            <form onSubmit={handleSubmit} className="flex-1 flex items-center">
+          {/* Command Input Line */}
+          <div className="flex text-purple-400 pb-10">
+            <div>visitor@portfolio:~$</div>
+            <form onSubmit={handleSubmit} className="flex-1">
               <input
                 ref={inputRef}
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                className="bg-transparent outline-none border-none w-full ml-2 text-purple-400 font-mono leading-normal py-0"
+                className="bg-transparent outline-none border-none w-full ml-2 text-purple-400 font-mono"
                 autoFocus
               />
             </form>
