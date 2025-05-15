@@ -41,7 +41,7 @@ Type 'help' to see available commands.`,
       action: () => ({
         isHtml: true,
         output: `<pre class="pb-2 pt-5">Available commands:</pre>
-        <div class="flex w-full pb-5 pl-4">
+        <div class="flex w-full pb-5 pl-0 md:pl-25">
           <table class="text-left">
             <tr><td><pre>help</pre></td><td><pre class="pl-10">Display this help message</pre></td></tr>
             <tr><td><pre>about</pre></td><td><pre class="pl-10">Learn about me</pre></td></tr>
@@ -60,7 +60,7 @@ Type 'help' to see available commands.`,
         isHtml: true,
         output: `<pre class="pt-5 text-cyan-400 font-bold">Hi, I'm Shawna Staff! 👋</pre>
 <pre class="pb-2">I'm a software engineer with experience in:</pre>
-<div class="flex w-full pb-5 pl-4">
+<div class="flex w-full pb-5 pl-0 md:pl-25">
   <table class="text-left">
     <tr><td><pre>-</pre></td><td><pre class="pl-2">Full-stack web development</pre></td></tr>
     <tr><td><pre>-</pre></td><td><pre class="pl-2">Mobile app development (React Native)</pre></td></tr>
@@ -76,7 +76,7 @@ Type 'help' to see available commands.`,
       action: () => ({
         isHtml: true,
         output: `<pre class="pb-2 pt-5">Technical Skills:</pre>
-<div class="flex w-full pb-5 pl-4">
+<div class="flex w-full pb-5 pl-0 md:pl-25">
   <table class="text-left">
     <tr><td><pre>Languages</pre></td><td><pre class="pl-10">TypeScript, JavaScript, Python, C#</pre></td></tr>
     <tr><td><pre>Frontend</pre></td><td><pre class="pl-10">React, React Native, NextJS, HTMX, CSS</pre></td></tr>
@@ -92,7 +92,7 @@ Type 'help' to see available commands.`,
       action: () => ({
         isHtml: true,
         output: `<pre class="pb-2 pt-5">Projects:</pre>
-<div class="flex w-full pb-5 pl-4">
+<div class="flex w-full pb-5 pl-0 md:pl-25">
   <table class="text-left">
     <tr><td><pre>1. Python Setup App</pre></td><td><pre class="pl-5">SQLAlchemy-FastAPI-PostgreSQL project template</pre></td></tr>
     <tr><td><pre>   Technologies</pre></td><td><pre class="pl-5">Python, FastAPI, PostgreSQL</pre></td></tr>
@@ -115,7 +115,7 @@ Type 'help' to see available commands.`,
         isHtml: true,
         output: `<pre class="pt-5">Work Experience:</pre>
 <pre class="pb-2">Software Engineer - Present</pre>
-<div class="flex w-full pb-5 pl-4">
+<div class="flex w-full pb-5 pl-0 md:pl-25">
   <table class="text-left">
     <tr><td><pre>-</pre></td><td><pre class="pl-2">Developing full-stack applications</pre></td></tr>
     <tr><td><pre>-</pre></td><td><pre class="pl-2">Working with React, TypeScript, Python</pre></td></tr>
@@ -131,7 +131,7 @@ Type 'help' to see available commands.`,
       action: () => ({
         isHtml: true,
         output: `<pre class="pb-2 pt-5">Contact Information:</pre>
-<div class="flex w-full pb-5 pl-4">
+<div class="flex w-full pb-5 pl-0 md:pl-25">
   <table class="text-left">
     <tr><td><pre>Email</pre></td><td><pre class="pl-10">shawnastaff@gmail.com</pre></td></tr>
     <tr><td><pre>GitHub</pre></td><td><pre class="pl-10">github.com/ShawnaRStaff</pre></td></tr>
@@ -151,8 +151,8 @@ Type 'help' to see available commands.`,
       description: "Unknown command",
       action: (command) => ({
         isHtml: true,
-        output: `<pre class="pt-5 text-red-400 pl-4">Command not found: ${command}</pre>
-<pre class="pb-5 pl-4">Type 'help' to see available commands.</pre>`,
+        output: `<pre class="pt-5 text-red-400 pl-0 md:pl-25">Command not found: ${command}</pre>
+<pre class="pb-5 pl-0 md:pl-25">Type 'help' to see available commands.</pre>`,
       }),
     },
   };
@@ -244,7 +244,7 @@ Type 'help' to see available commands.`,
             { 
               type: "output", 
               isHtml: true,
-              content: `<pre class="pt-5 pb-5 pl-4">Available completions: ${matches.join("  ")}</pre>` 
+              content: `<pre class="pt-5 pb-5 pl-0 md:pl-25">Available completions: ${matches.join("  ")}</pre>` 
             },
           ]);
         }
@@ -271,7 +271,7 @@ Type 'help' to see available commands.`,
         ref={terminalRef}
         className="bg-gray-900 p-4 h-60 md:h-80 overflow-y-auto font-mono text-sm"
       >
-        <div className="w-full">
+        <div className="w-full flex flex-col items-center">
           {history.map((item, index) => (
             <div
               key={index}
@@ -281,7 +281,7 @@ Type 'help' to see available commands.`,
                   : item.type === "system"
                   ? "text-cyan-400"
                   : "text-gray-300"
-              }`}
+              } w-full max-w-xl`}
             >
               {item.isHtml ? (
                 <div dangerouslySetInnerHTML={{ __html: item.content }} />
@@ -292,7 +292,7 @@ Type 'help' to see available commands.`,
           ))}
 
           {/* Command Input Line */}
-          <div className="flex text-purple-400 pt-5">
+          <div className="flex text-purple-400 pt-5 w-full max-w-xl">
             <div>visitor@portfolio:~$</div>
             <form onSubmit={handleSubmit} className="flex-1">
               <input
