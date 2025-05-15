@@ -40,7 +40,7 @@ Type 'help' to see available commands.`,
       description: "Display available commands",
       action: () => ({
         isHtml: true,
-        output: `<pre class="py-2">Available commands:</pre>
+        output: `<pre class="pb-2 pt-5">Available commands:</pre>
         <div class="flex justify-center w-full ml-5">
           <table class="text-left">
             <tr><td class=""><pre>help</pre></td><td><pre class="pl-10">Display this help message</pre></td></tr>
@@ -281,7 +281,7 @@ LinkedIn: https://www.linkedin.com/in/shawnastaff/
           ))}
 
           {/* Command Input Line */}
-          <div className="flex text-purple-400 pb-10">
+          <div className="flex text-purple-400 pt-5 pb-10">
             <div>visitor@portfolio:~$</div>
             <form onSubmit={handleSubmit} className="flex-1">
               <input
