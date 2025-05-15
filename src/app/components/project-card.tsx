@@ -1,6 +1,6 @@
 import { FaGithub } from "react-icons/fa";
 
-interface ProjectType {
+export interface ProjectType {
   id: string;
   title: string;
   description: string;

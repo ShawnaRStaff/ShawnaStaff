@@ -10,15 +10,8 @@ import {
 import Terminal from "./components/terminal";
 import ProjectCard from "./components/project-card";
 import SkillItem from "./components/skill-item";
+import { ProjectType } from "./components/project-card";
 
-interface ProjectType {
-  id: string;
-  title: string;
-  description: string;
-  technologies: string[];
-  githubUrl: string;
-  liveUrl?: string;
-}
 
 interface SkillType {
   name: string;
