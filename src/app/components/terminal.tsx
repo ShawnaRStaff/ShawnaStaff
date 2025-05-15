@@ -41,15 +41,15 @@ Type 'help' to see available commands.`,
       action: () => ({
         isHtml: true,
         output: `<pre class="pb-2 pt-5">Available commands:</pre>
-        <div class="flex justify-center w-full ml-5">
+        <div class="flex w-full pb-5 pl-4">
           <table class="text-left">
-            <tr><td class=""><pre>help</pre></td><td><pre class="pl-10">Display this help message</pre></td></tr>
-            <tr><td class=""><pre>about</pre></td><td><pre class="pl-10">Learn about me</pre></td></tr>
-            <tr><td class=""><pre>skills</pre></td><td><pre class="pl-10">View my technical skills</pre></td></tr>
-            <tr><td class=""><pre>projects</pre></td><td><pre class="pl-10">Browse my portfolio projects</pre></td></tr>
-            <tr><td class=""><pre>experience</pre></td><td><pre class="pl-10">View my work experience</pre></td></tr>
-            <tr><td class=""><pre>contact</pre></td><td><pre class="pl-10">Get my contact information</pre></td></tr>
-            <tr><td class=""><pre>clear</pre></td><td><pre class="pl-10">Clear the terminal screen</pre></td></tr>
+            <tr><td><pre>help</pre></td><td><pre class="pl-10">Display this help message</pre></td></tr>
+            <tr><td><pre>about</pre></td><td><pre class="pl-10">Learn about me</pre></td></tr>
+            <tr><td><pre>skills</pre></td><td><pre class="pl-10">View my technical skills</pre></td></tr>
+            <tr><td><pre>projects</pre></td><td><pre class="pl-10">Browse my portfolio projects</pre></td></tr>
+            <tr><td><pre>experience</pre></td><td><pre class="pl-10">View my work experience</pre></td></tr>
+            <tr><td><pre>contact</pre></td><td><pre class="pl-10">Get my contact information</pre></td></tr>
+            <tr><td><pre>clear</pre></td><td><pre class="pl-10">Clear the terminal screen</pre></td></tr>
           </table>
         </div>`,
       }),
@@ -58,34 +58,32 @@ Type 'help' to see available commands.`,
       description: "Learn about me",
       action: () => ({
         isHtml: true,
-        output: `<div class="flex justify-center w-full">
-<pre>
-Hi, I'm Shawna Staff! 👋
-
-I'm a software engineer with experience in:
-- Full-stack web development
-- Mobile app development (React Native)
-- Python backend services
-- .NET microservices
-- Data processing & automation
-</pre>
+        output: `<pre class="pt-5 text-cyan-400 font-bold">Hi, I'm Shawna Staff! 👋</pre>
+<pre class="pb-2">I'm a software engineer with experience in:</pre>
+<div class="flex w-full pb-5 pl-4">
+  <table class="text-left">
+    <tr><td><pre>-</pre></td><td><pre class="pl-2">Full-stack web development</pre></td></tr>
+    <tr><td><pre>-</pre></td><td><pre class="pl-2">Mobile app development (React Native)</pre></td></tr>
+    <tr><td><pre>-</pre></td><td><pre class="pl-2">Python backend services</pre></td></tr>
+    <tr><td><pre>-</pre></td><td><pre class="pl-2">.NET microservices</pre></td></tr>
+    <tr><td><pre>-</pre></td><td><pre class="pl-2">Data processing & automation</pre></td></tr>
+  </table>
 </div>`,
-      }),
-    },
+        }),
+      },
     skills: {
       description: "View my technical skills",
       action: () => ({
         isHtml: true,
-        output: `<div class="flex justify-center w-full">
-<pre>
-Technical Skills:
------------------
-Languages: TypeScript, JavaScript, Python, C#
-Frontend:  React, React Native, NextJS, HTMX, CSS
-Backend:   FastAPI, .NET, Node.js
-Database:  PostgreSQL, SQL, MongoDB, Firebase
-Tools:     Git, Docker, CI/CD
-</pre>
+        output: `<pre class="pb-2 pt-5">Technical Skills:</pre>
+<div class="flex w-full pb-5 pl-4">
+  <table class="text-left">
+    <tr><td><pre>Languages</pre></td><td><pre class="pl-10">TypeScript, JavaScript, Python, C#</pre></td></tr>
+    <tr><td><pre>Frontend</pre></td><td><pre class="pl-10">React, React Native, NextJS, HTMX, CSS</pre></td></tr>
+    <tr><td><pre>Backend</pre></td><td><pre class="pl-10">FastAPI, .NET, Node.js</pre></td></tr>
+    <tr><td><pre>Database</pre></td><td><pre class="pl-10">PostgreSQL, SQL, MongoDB, Firebase</pre></td></tr>
+    <tr><td><pre>Tools</pre></td><td><pre class="pl-10">Git, Docker, CI/CD</pre></td></tr>
+  </table>
 </div>`,
       }),
     },
@@ -93,14 +91,21 @@ Tools:     Git, Docker, CI/CD
       description: "Browse my portfolio projects",
       action: () => ({
         isHtml: true,
-        output: `<div class="flex justify-center w-full">
-<pre>
-Featured Projects:
------------------
-1. Python Setup App - SQLAlchemy-FastAPI-PostgreSQL project template
-2. Personal Budgeting App - React Native financial tracking application
-3. CSV Cleaner - Python tool for data processing
-</pre>
+        output: `<pre class="pb-2 pt-5">Projects:</pre>
+<div class="flex w-full pb-5 pl-4">
+  <table class="text-left">
+    <tr><td><pre>1. Python Setup App</pre></td><td><pre class="pl-5">SQLAlchemy-FastAPI-PostgreSQL project template</pre></td></tr>
+    <tr><td><pre>   Technologies</pre></td><td><pre class="pl-5">Python, FastAPI, PostgreSQL</pre></td></tr>
+    <tr><td><pre>   GitHub</pre></td><td><pre class="pl-5">github.com/ShawnaRStaff/python_setup_app</pre></td></tr>
+    <tr><td></td><td></td></tr>
+    <tr><td><pre>2. Budgeting App</pre></td><td><pre class="pl-5">React Native financial tracking application</pre></td></tr>
+    <tr><td><pre>   Technologies</pre></td><td><pre class="pl-5">React Native, TypeScript, Firebase</pre></td></tr>
+    <tr><td><pre>   GitHub</pre></td><td><pre class="pl-5">github.com/ShawnaRStaff/personal-budgeting-app</pre></td></tr>
+    <tr><td></td><td></td></tr>
+    <tr><td><pre>3. CSV Cleaner</pre></td><td><pre class="pl-5">Python tool for data processing</pre></td></tr>
+    <tr><td><pre>   Technologies</pre></td><td><pre class="pl-5">Python, Pandas</pre></td></tr>
+    <tr><td><pre>   GitHub</pre></td><td><pre class="pl-5">github.com/ShawnaRStaff/csv-cleaner</pre></td></tr>
+  </table>
 </div>`,
       }),
     },
@@ -108,15 +113,16 @@ Featured Projects:
       description: "View my work experience",
       action: () => ({
         isHtml: true,
-        output: `<div class="flex justify-center w-full">
-<pre>
-Work Experience:
---------------
-Software Engineer - Present
-- Developing full-stack applications
-- Working with React, TypeScript, Python, and more
-- Implementing CI/CD pipelines and DevOps practices
-</pre>
+        output: `<pre class="pt-5">Work Experience:</pre>
+<pre class="pb-2">Software Engineer - Present</pre>
+<div class="flex w-full pb-5 pl-4">
+  <table class="text-left">
+    <tr><td><pre>-</pre></td><td><pre class="pl-2">Developing full-stack applications</pre></td></tr>
+    <tr><td><pre>-</pre></td><td><pre class="pl-2">Working with React, TypeScript, Python</pre></td></tr>
+    <tr><td><pre>-</pre></td><td><pre class="pl-2">Implementing CI/CD pipelines</pre></td></tr>
+    <tr><td><pre>-</pre></td><td><pre class="pl-2">Building RESTful APIs and microservices</pre></td></tr>
+    <tr><td><pre>-</pre></td><td><pre class="pl-2">Optimizing database performance</pre></td></tr>
+  </table>
 </div>`,
       }),
     },
@@ -124,14 +130,13 @@ Software Engineer - Present
       description: "Get my contact information",
       action: () => ({
         isHtml: true,
-        output: `<div class="flex justify-center w-full">
-<pre>
-Contact Information:
-------------------
-Email:    shawnastaff@gmail.com
-GitHub:   https://github.com/ShawnaRStaff
-LinkedIn: https://www.linkedin.com/in/shawnastaff/
-</pre>
+        output: `<pre class="pb-2 pt-5">Contact Information:</pre>
+<div class="flex w-full pb-5 pl-4">
+  <table class="text-left">
+    <tr><td><pre>Email</pre></td><td><pre class="pl-10">shawnastaff@gmail.com</pre></td></tr>
+    <tr><td><pre>GitHub</pre></td><td><pre class="pl-10">github.com/ShawnaRStaff</pre></td></tr>
+    <tr><td><pre>LinkedIn</pre></td><td><pre class="pl-10">linkedin.com/in/shawnastaff</pre></td></tr>
+  </table>
 </div>`,
       }),
     },
@@ -145,7 +150,9 @@ LinkedIn: https://www.linkedin.com/in/shawnastaff/
     unknown: {
       description: "Unknown command",
       action: (command) => ({
-        output: `Command not found: ${command}\nType 'help' to see available commands.`,
+        isHtml: true,
+        output: `<pre class="pt-5 text-red-400 pl-4">Command not found: ${command}</pre>
+<pre class="pb-5 pl-4">Type 'help' to see available commands.</pre>`,
       }),
     },
   };
@@ -234,7 +241,11 @@ LinkedIn: https://www.linkedin.com/in/shawnastaff/
           setHistory((prev) => [
             ...prev,
             { type: "command", content: `visitor@portfolio:~$ ${input}` },
-            { type: "output", content: matches.join("  ") },
+            { 
+              type: "output", 
+              isHtml: true,
+              content: `<pre class="pt-5 pb-5 pl-4">Available completions: ${matches.join("  ")}</pre>` 
+            },
           ]);
         }
       }
@@ -281,7 +292,7 @@ LinkedIn: https://www.linkedin.com/in/shawnastaff/
           ))}
 
           {/* Command Input Line */}
-          <div className="flex text-purple-400 pt-5 pb-10">
+          <div className="flex text-purple-400 pt-5">
             <div>visitor@portfolio:~$</div>
             <form onSubmit={handleSubmit} className="flex-1">
               <input
