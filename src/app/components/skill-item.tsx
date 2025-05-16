@@ -1,18 +1,24 @@
 import {
-    FaReact,
-    FaPython,
-    FaNodeJs,
-    FaDatabase,
-  } from "react-icons/fa";
-  import {
-    SiTypescript,
-    SiJavascript,
-    SiPostgresql,
-    SiSharp,
-    SiDotnet,
-    SiFastapi,
-    SiDocker,
-  } from "react-icons/si";
+  FaReact,
+  FaPython,
+  FaNodeJs,
+  FaDatabase,
+  FaHtml5,
+  FaGithub,  
+} from "react-icons/fa";
+import {
+  SiTypescript,
+  SiJavascript,
+  SiPostgresql,
+  SiSharp,
+  SiDotnet,
+  SiFastapi,
+  SiDocker,
+  SiCss3,
+  SiMongodb,
+  SiMysql,
+  SiGithubactions,  
+} from "react-icons/si";
 
 interface SkillItemProps {
   icon: string;
@@ -31,6 +37,8 @@ export default function SkillItem({
       FaPython,
       FaNodeJs,
       FaDatabase,
+      FaHtml5,
+      FaGithub,  
       SiTypescript,
       SiJavascript,
       SiPostgresql,
@@ -38,7 +46,20 @@ export default function SkillItem({
       SiDotnet,
       SiFastapi,
       SiDocker,
+      SiCss3,
+      SiMongodb,
+      SiMysql,
+      SiGithubactions,  
     };
+
+    if (iconName === "SiHtmx") {
+      return <FaHtml5 className="text-2xl" />;
+    }
+    
+    // Fallback for GitHub Actions if SiGithubactions is not available
+    if (iconName === "SiGithubactions" && !SiGithubactions) {
+      return <FaGithub className="text-2xl" />;
+    }
 
     const IconComponent = iconMap[iconName];
     return IconComponent ? <IconComponent className="text-2xl" /> : null;

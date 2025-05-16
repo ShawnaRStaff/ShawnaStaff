@@ -49,18 +49,23 @@ export default function Home(): React.JSX.Element {
     },
   ];
 
-  // Skills data
+  //Skills data 
   const skills: SkillType[] = [
     { name: "React / React Native", icon: "FaReact", level: 9 },
-    { name: "TypeScript", icon: "SiTypescript", level: 8 },
+    { name: "TypeScript", icon: "SiTypescript", level: 7 },
     { name: "JavaScript", icon: "SiJavascript", level: 9 },
+    { name: "CSS", icon: "SiCss3", level: 8 },
+    { name: "HTMX", icon: "SiHtmx", level: 7 },
     { name: "Python", icon: "FaPython", level: 8 },
-    { name: "FastAPI", icon: "SiFastapi", level: 7 },
-    { name: "PostgreSQL", icon: "SiPostgresql", level: 7 },
-    { name: "C#", icon: "SiSharp", level: 6 },
-    { name: ".NET", icon: "SiDotnet", level: 6 },
-    { name: "Node.js", icon: "FaNodeJs", level: 7 },
-    { name: "Docker", icon: "SiDocker", level: 6 },
+    { name: "FastAPI", icon: "SiFastapi", level: 8 },
+    { name: "PostgreSQL", icon: "SiPostgresql", level: 8 },
+    { name: "SQL", icon: "SiMysql", level: 9 },
+    { name: "MongoDB", icon: "SiMongodb", level: 7 },
+    { name: "C#", icon: "SiSharp", level: 8 },
+    { name: ".NET", icon: "SiDotnet", level: 8 },
+    { name: "Node.js", icon: "FaNodeJs", level: 9 },
+    { name: "Docker", icon: "SiDocker", level: 7 },
+    { name: "GitHub Actions", icon: "SiGithubactions", level: 8 },
   ];
 
   return (
@@ -152,13 +157,14 @@ export default function Home(): React.JSX.Element {
             <span className="border-b-2 border-purple-500 pb-1">Skills</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Frontend Card */}
             <div className="bg-gray-900 p-6 rounded-lg border border-purple-800 shadow-lg">
               <h3 className="text-xl font-semibold mb-4 text-purple-400">
                 Frontend
               </h3>
               {skills
                 .filter((skill) =>
-                  ["FaReact", "SiTypescript", "SiJavascript"].includes(
+                  ["FaReact", "SiTypescript", "SiJavascript", "SiCss3", "SiHtmx"].includes(
                     skill.icon
                   )
                 )
@@ -171,6 +177,8 @@ export default function Home(): React.JSX.Element {
                   />
                 ))}
             </div>
+            
+            {/* Backend Card */}
             <div className="bg-gray-900 p-6 rounded-lg border border-purple-800 shadow-lg">
               <h3 className="text-xl font-semibold mb-4 text-purple-400">
                 Backend
@@ -194,15 +202,18 @@ export default function Home(): React.JSX.Element {
                   />
                 ))}
             </div>
+            
+            {/* Database & DevOps */}
             <div className="bg-gray-900 p-6 rounded-lg border border-purple-800 shadow-lg md:col-span-2">
               <h3 className="text-xl font-semibold mb-4 text-purple-400">
                 Database & DevOps
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
+                  <h4 className="text-lg font-medium mb-3 text-purple-300">Databases</h4>
                   {skills
                     .filter((skill) =>
-                      ["SiPostgresql", "FaDatabase"].includes(skill.icon)
+                      ["SiPostgresql", "SiMysql", "SiMongodb", "FaDatabase"].includes(skill.icon)
                     )
                     .map((skill) => (
                       <SkillItem
@@ -214,8 +225,11 @@ export default function Home(): React.JSX.Element {
                     ))}
                 </div>
                 <div>
+                  <h4 className="text-lg font-medium mb-3 text-purple-300">DevOps</h4>
                   {skills
-                    .filter((skill) => ["SiDocker"].includes(skill.icon))
+                    .filter((skill) => 
+                      ["SiDocker", "SiGithubactions"].includes(skill.icon)
+                    )
                     .map((skill) => (
                       <SkillItem
                         key={skill.name}

@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     siteName: "Shawna Staff Portfolio",
     images: [
       {
-        url: "/og-image.jpg", // Create and add this image to your public folder
+        url: "/og-image.jpg", // Create and add this image to the public folder
         width: 1200,
         height: 630,
         alt: "Shawna Staff - Software Engineer",
