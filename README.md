@@ -89,8 +89,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Feel free to reach out if you have any questions or would like to connect!
 
 - Email: shawnastaff@gmail.com
-- GitHub: [ShawnaRStaff](https://github.com/ShawnaRStaff)
-- LinkedIn: [Your LinkedIn](https://www.linkedin.com/in/shawnastaff/)
+- GitHub: [GitHub](https://github.com/ShawnaRStaff)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/shawnastaff/)
 
 ---
 
