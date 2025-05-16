@@ -1,13 +1,6 @@
 import { FaGithub } from "react-icons/fa";
+import { ProjectType } from "@/app/components/projects/projects";
 
-export interface ProjectType {
-  id: string;
-  title: string;
-  description: string;
-  technologies: string[];
-  githubUrl: string;
-  liveUrl?: string;
-}
 interface ProjectCardProps {
   project: ProjectType;
 }

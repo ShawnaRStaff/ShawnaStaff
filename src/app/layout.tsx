@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -11,6 +11,14 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: "#0f172a", // Tailwind's gray-950
+  colorScheme: "dark",
+};
 
 export const metadata: Metadata = {
   title: "Shawna Staff | Software Engineer",
@@ -70,13 +78,6 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/site.webmanifest", 
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
-  themeColor: "#0f172a", // Tailwind's gray-950
-  colorScheme: "dark",
   applicationName: "Shawna Staff Portfolio",
   robots: {
     index: true,

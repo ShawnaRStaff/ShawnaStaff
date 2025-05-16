@@ -14,7 +14,7 @@ Visit the live site: [shawnastaff.dev](#) *(Coming soon)*
 - **Responsive Design**: Optimized for all screen sizes from mobile to desktop
 - **Modern UI**: Clean, professional interface with subtle animations
 - **Dark Theme**: Code-inspired color scheme for a developer-friendly experience
-- **Project Showcase**: Highlighted collection of my best work
+- **Project Showcase**: Highlighted collection of my personal toils
 
 ## 🛠️ Technologies
 
