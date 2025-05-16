@@ -32,7 +32,7 @@ export default function SkillItem({
 }: SkillItemProps): React.JSX.Element {
   // Convert the icon name to the actual component
   const getIcon = (iconName: string): React.JSX.Element | null => {
-    const iconMap: Record<string, React.ComponentType<any>> = {
+    const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
       FaReact,
       FaPython,
       FaNodeJs,
