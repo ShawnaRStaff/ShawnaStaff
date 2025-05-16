@@ -47,7 +47,7 @@ export default function Home(): React.JSX.Element {
         <Section title="About Me">
           <div className="bg-gray-900 p-6 rounded-lg border border-purple-800 shadow-lg max-w-3xl mx-auto">
             <p className="text-gray-300 mb-4">
-              I'm a software engineer passionate about building clean,
+              I&apos;m a software engineer passionate about building clean,
               efficient, and user-friendly applications. With expertise in both
               frontend and backend development, I specialize in creating
               seamless experiences across web and mobile platforms.
