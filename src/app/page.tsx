@@ -1,24 +1,18 @@
 "use client";
 import React from "react";
 import Head from "next/head";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 import Terminal from "./components/terminal";
 import ProjectCard from "./components/project-card";
 import SkillItem from "./components/skill-item";
 import { ProjectType } from "./components/project-card";
 
-
 interface SkillType {
   name: string;
   icon: string;
   level: number;
 }
-
 
 export default function Home(): React.JSX.Element {
   // Project data
@@ -49,7 +43,7 @@ export default function Home(): React.JSX.Element {
     },
   ];
 
-  //Skills data 
+  //Skills data
   const skills: SkillType[] = [
     { name: "React / React Native", icon: "FaReact", level: 9 },
     { name: "TypeScript", icon: "SiTypescript", level: 7 },
@@ -77,10 +71,6 @@ export default function Home(): React.JSX.Element {
           content="Shawna Staff's software engineer portfolio"
         />
         <link rel="icon" href="/favicon.ico" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap"
-          rel="stylesheet"
-        />
       </Head>
 
       <main className="container mx-auto px-4 py-12">
@@ -137,7 +127,7 @@ export default function Home(): React.JSX.Element {
           </h2>
           <div className="bg-gray-900 p-6 rounded-lg border border-purple-800 shadow-lg max-w-3xl mx-auto">
             <p className="text-gray-300 mb-4">
-              I'm a software engineer passionate about building clean,
+              I&apos;m a software engineer passionate about building clean,
               efficient, and user-friendly applications. With expertise in both
               frontend and backend development, I specialize in creating
               seamless experiences across web and mobile platforms.
@@ -164,9 +154,13 @@ export default function Home(): React.JSX.Element {
               </h3>
               {skills
                 .filter((skill) =>
-                  ["FaReact", "SiTypescript", "SiJavascript", "SiCss3", "SiHtmx"].includes(
-                    skill.icon
-                  )
+                  [
+                    "FaReact",
+                    "SiTypescript",
+                    "SiJavascript",
+                    "SiCss3",
+                    "SiHtmx",
+                  ].includes(skill.icon)
                 )
                 .map((skill) => (
                   <SkillItem
@@ -177,7 +171,7 @@ export default function Home(): React.JSX.Element {
                   />
                 ))}
             </div>
-            
+
             {/* Backend Card */}
             <div className="bg-gray-900 p-6 rounded-lg border border-purple-800 shadow-lg">
               <h3 className="text-xl font-semibold mb-4 text-purple-400">
@@ -202,7 +196,7 @@ export default function Home(): React.JSX.Element {
                   />
                 ))}
             </div>
-            
+
             {/* Database & DevOps */}
             <div className="bg-gray-900 p-6 rounded-lg border border-purple-800 shadow-lg md:col-span-2">
               <h3 className="text-xl font-semibold mb-4 text-purple-400">
@@ -210,10 +204,17 @@ export default function Home(): React.JSX.Element {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="text-lg font-medium mb-3 text-purple-300">Databases</h4>
+                  <h4 className="text-lg font-medium mb-3 text-purple-300">
+                    Databases
+                  </h4>
                   {skills
                     .filter((skill) =>
-                      ["SiPostgresql", "SiMysql", "SiMongodb", "FaDatabase"].includes(skill.icon)
+                      [
+                        "SiPostgresql",
+                        "SiMysql",
+                        "SiMongodb",
+                        "FaDatabase",
+                      ].includes(skill.icon)
                     )
                     .map((skill) => (
                       <SkillItem
@@ -225,9 +226,11 @@ export default function Home(): React.JSX.Element {
                     ))}
                 </div>
                 <div>
-                  <h4 className="text-lg font-medium mb-3 text-purple-300">DevOps</h4>
+                  <h4 className="text-lg font-medium mb-3 text-purple-300">
+                    DevOps
+                  </h4>
                   {skills
-                    .filter((skill) => 
+                    .filter((skill) =>
                       ["SiDocker", "SiGithubactions"].includes(skill.icon)
                     )
                     .map((skill) => (
