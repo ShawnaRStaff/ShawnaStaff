@@ -21,6 +21,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://shawnastaff.dev'),
   title: "Shawna Staff | Software Engineer",
   description: "Software engineer specializing in full-stack development with expertise in React, TypeScript, Python, and .NET. View my projects and experience.",
   keywords: [
@@ -48,13 +49,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://shawnastaff.dev", // Replace with actual domain once live
+    url: "https://shawnastaff.dev", 
     title: "Shawna Staff | Software Engineer",
     description: "Software engineer specializing in full-stack development with expertise in React, TypeScript, Python, and .NET.",
     siteName: "Shawna Staff Portfolio",
     images: [
       {
-        url: "/og-image.jpg", // Create and add this image to the public folder
+        url: "/og-image.jpg", 
         width: 1200,
         height: 630,
         alt: "Shawna Staff - Software Engineer",
@@ -94,6 +95,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning={true}
       >
         {children}
       </body>

@@ -1,12 +1,12 @@
 # Shawna Staff | Software Engineer Portfolio
 [![Netlify Status](https://api.netlify.com/api/v1/badges/708c5358-c08d-45de-93c6-fab20f487313/deploy-status)](https://app.netlify.com/projects/shawnastaff/deploys)
-![Portfolio Preview](https://via.placeholder.com/800x400?text=Portfolio+Preview)
+<!-- ![Portfolio Preview](https://via.placeholder.com/800x400?text=Portfolio+Preview) -->
 
 ## 🌐 Overview
 
 Welcome to my personal portfolio website repository! This interactive portfolio showcases my skills, projects, and experience as a software engineer. The site features a unique, interactive terminal interface alongside modern design elements.
 
-Visit the live site: [shawnastaff.dev](#) *(Coming soon)*
+Visit the live site: [shawnastaff.dev](http://shawnastaff.dev) 
 
 ## ✨ Features
 
