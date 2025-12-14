@@ -1,45 +1,41 @@
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { ProjectType } from "@/app/components/projects/projects";
 
-interface ProjectCardProps {
-  project: ProjectType;
-}
-export default function ProjectCard({
-  project,
-}: ProjectCardProps): React.JSX.Element {
+export default function ProjectCard({ project }: { project: ProjectType }): React.JSX.Element {
   return (
-    <div className="bg-gray-900 rounded-lg overflow-hidden shadow-lg border border-purple-800 hover:shadow-purple-500/30 transition-all duration-300 h-full flex flex-col">
-      <div className="p-6 flex-grow">
-        <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-        <p className="text-gray-300 mb-4">{project.description}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
+    <div className="retro-card h-full flex flex-col">
+      <div className="p-4 md:p-5 flex-grow">
+        <h3 className="text-base md:text-lg font-semibold text-[var(--color-terminal)] mb-2 text-glow-subtle">
+          {">"} {project.title}
+        </h3>
+        <p className="text-[var(--color-text-muted)] text-xs md:text-sm mb-4 leading-relaxed">
+          {project.description}
+        </p>
+        <div className="flex flex-wrap gap-1.5 mb-4">
           {project.technologies.map((tech) => (
-            <span
-              key={tech}
-              className="px-2 py-1 bg-purple-900/50 text-purple-300 text-xs rounded-full"
-            >
+            <span key={tech} className="retro-tag text-[10px] md:text-xs">
               {tech}
             </span>
           ))}
         </div>
       </div>
-      <div className="px-6 pb-4 flex justify-between">
+      <div className="px-4 md:px-5 pb-4 flex gap-4 border-t border-[var(--color-border)] pt-3">
         <a
           href={project.githubUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1 text-sm"
+          className="text-[var(--color-cyan)] hover:text-glow-cyan transition-all flex items-center gap-1.5 text-xs md:text-sm"
         >
-          <FaGithub /> View Code
+          <FaGithub /> Code
         </a>
         {project.liveUrl && (
           <a
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-purple-400 hover:text-purple-300 transition-colors flex items-center gap-1 text-sm"
+            className="text-[var(--color-amber)] hover:text-glow-amber transition-all flex items-center gap-1.5 text-xs md:text-sm"
           >
-            Live Demo
+            <FaExternalLinkAlt size={10} /> Demo
           </a>
         )}
       </div>

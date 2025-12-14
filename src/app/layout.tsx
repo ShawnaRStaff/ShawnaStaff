@@ -16,7 +16,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
-  themeColor: "#0f172a", // Tailwind's gray-950
+  themeColor: "#0a0a0a",
   colorScheme: "dark",
 };
 
@@ -70,13 +70,7 @@ export const metadata: Metadata = {
     creator: "@shawnastaffreal",
   },
   icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon.png", type: "image/png" },
-    ],
-    apple: [
-      { url: "/apple-icon.png", type: "image/png" },
-    ],
+    icon: "/icon.svg",
   },
   manifest: "/site.webmanifest", 
   applicationName: "Shawna Staff Portfolio",

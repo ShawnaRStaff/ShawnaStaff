@@ -10,11 +10,8 @@ interface HistoryItem {
 export default function Terminal(): React.JSX.Element {
   const [input, setInput] = useState<string>("");
   const [history, setHistory] = useState<HistoryItem[]>([
-    {
-      type: "system",
-      content: `Welcome to Shawna Staff's portfolio terminal!
-Type 'help' to see available commands.`,
-    },
+    { type: "system", content: "[SYSTEM] Welcome to Shawna Staff's portfolio terminal" },
+    { type: "system", content: "[SYSTEM] Type 'help' to see available commands" },
   ]);
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState<number>(-1);
@@ -22,45 +19,26 @@ Type 'help' to see available commands.`,
   const terminalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
+    if (inputRef.current) inputRef.current.focus();
   }, []);
 
   useEffect(() => {
-    if (terminalRef.current) {
-      terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
-    }
+    if (terminalRef.current) terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
   }, [history]);
 
   const executeCommand = (cmd: string): void => {
     const [command, ...args] = cmd.trim().split(" ");
     const commandArgs = args.join(" ");
-
-    setHistory((prev) => [
-      ...prev,
-      { type: "command", content: `visitor@portfolio:~$ ${cmd}` },
-    ]);
-
+    setHistory((prev) => [...prev, { type: "command", content: `visitor@portfolio:~$ ${cmd}` }]);
     const commandObj = COMMANDS[command.toLowerCase()] || COMMANDS.unknown;
     const result = commandObj.action(commandArgs);
-
     if (result.clear) {
       setHistory([]);
       return;
     }
-
     if (result.output) {
-      setHistory((prev) => [
-        ...prev,
-        { 
-          type: "output", 
-          content: result.output,
-          isHtml: result.isHtml 
-        },
-      ]);
+      setHistory((prev) => [...prev, { type: "output", content: result.output, isHtml: result.isHtml }]);
     }
-
     setCommandHistory((prev) => [...prev, cmd]);
     setHistoryIndex(-1);
   };
@@ -68,7 +46,6 @@ Type 'help' to see available commands.`,
   const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
     if (!input.trim()) return;
-
     executeCommand(input);
     setInput("");
   };
@@ -85,31 +62,19 @@ Type 'help' to see available commands.`,
       e.preventDefault();
       const newIndex = Math.max(-1, historyIndex - 1);
       setHistoryIndex(newIndex);
-      if (newIndex >= 0) {
-        setInput(commandHistory[commandHistory.length - 1 - newIndex]);
-      } else {
-        setInput("");
-      }
+      setInput(newIndex >= 0 ? commandHistory[commandHistory.length - 1 - newIndex] : "");
     } else if (e.key === "Tab") {
       e.preventDefault();
-      // Simple tab completion
       const partialCommand = input.toLowerCase();
       if (partialCommand) {
-        const matches = Object.keys(COMMANDS).filter(
-          (cmd) => cmd !== "unknown" && cmd.startsWith(partialCommand)
-        );
+        const matches = Object.keys(COMMANDS).filter((cmd) => cmd !== "unknown" && cmd.startsWith(partialCommand));
         if (matches.length === 1) {
           setInput(matches[0]);
         } else if (matches.length > 1) {
-          // Show completions
           setHistory((prev) => [
             ...prev,
             { type: "command", content: `visitor@portfolio:~$ ${input}` },
-            { 
-              type: "output", 
-              isHtml: true,
-              content: `<pre class="pt-5 pb-5 pl-0 md:pl-25">Available completions: ${matches.join("  ")}</pre>` 
-            },
+            { type: "output", isHtml: true, content: `<pre class="pt-3 pb-3 text-[var(--color-amber)]">Completions: ${matches.join("  ")}</pre>` },
           ]);
         }
       }
@@ -117,35 +82,26 @@ Type 'help' to see available commands.`,
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto rounded-md overflow-hidden border border-purple-800 shadow-lg shadow-purple-500/20">
-      {/* Terminal Header */}
-      <div className="flex items-center bg-gray-900 px-4 py-2">
-        <div className="flex space-x-2">
-          <div className="w-3 h-3 rounded-full bg-red-500"></div>
-          <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-          <div className="w-3 h-3 rounded-full bg-green-500"></div>
-        </div>
-        <div className="ml-4 text-gray-400 text-sm font-mono">
-          terminal@shawnastaff.dev
-        </div>
+    <div className="terminal-window w-full max-w-3xl mx-auto">
+      <div className="terminal-header">
+        <div className="terminal-dot red" />
+        <div className="terminal-dot yellow" />
+        <div className="terminal-dot green" />
+        <span className="ml-4 text-[var(--color-text-muted)] text-xs md:text-sm">terminal@shawnastaff.dev</span>
       </div>
 
-      {/* Terminal Content */}
-      <div
-        ref={terminalRef}
-        className="bg-gray-900 p-4 h-60 md:h-80 overflow-y-auto font-mono text-sm"
-      >
-        <div className="w-full flex flex-col items-center">
+      <div ref={terminalRef} className="p-3 md:p-4 h-52 md:h-72 overflow-y-auto text-xs md:text-sm text-left" onClick={() => inputRef.current?.focus()}>
+        <div className="w-full flex flex-col items-start">
           {history.map((item, index) => (
             <div
               key={index}
-              className={`${
+              className={`w-full ${
                 item.type === "command"
-                  ? "text-purple-400"
+                  ? "text-[var(--color-terminal)] text-glow-subtle"
                   : item.type === "system"
-                  ? "text-cyan-400"
-                  : "text-gray-300"
-              } w-full max-w-xl`}
+                  ? "text-[var(--color-cyan)]"
+                  : "text-[var(--color-text)]"
+              }`}
             >
               {item.isHtml ? (
                 <div dangerouslySetInnerHTML={{ __html: item.content }} />
@@ -155,9 +111,11 @@ Type 'help' to see available commands.`,
             </div>
           ))}
 
-          {/* Command Input Line */}
-          <div className="flex text-purple-400 pt-5 w-full max-w-xl">
-            <div>visitor@portfolio:~$</div>
+          <div className="flex w-full text-[var(--color-terminal)] pt-3">
+            <span className="text-[var(--color-amber)]">visitor</span>
+            <span className="text-[var(--color-text-muted)]">@</span>
+            <span className="text-[var(--color-cyan)]">portfolio</span>
+            <span className="text-[var(--color-text-muted)]">:~$</span>
             <form onSubmit={handleSubmit} className="flex-1">
               <input
                 ref={inputRef}
@@ -165,19 +123,21 @@ Type 'help' to see available commands.`,
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                className="bg-transparent outline-none border-none w-full ml-2 text-purple-400 font-mono"
+                className="bg-transparent outline-none border-none w-full ml-2 text-[var(--color-terminal)] caret-[var(--color-terminal)]"
                 autoFocus
+                spellCheck={false}
+                autoComplete="off"
+                autoCapitalize="off"
               />
             </form>
+            <span className="terminal-cursor" />
           </div>
         </div>
       </div>
 
-      {/* Terminal Footer */}
-      <div className="bg-gray-900 px-4 py-2 flex justify-between items-center border-t border-purple-800">
-        <div className="text-xs text-gray-500 font-mono">
-          Tab: autocomplete | ↑↓: history
-        </div>
+      <div className="border-t border-[var(--color-border)] px-3 md:px-4 py-2 flex justify-between items-center">
+        <span className="text-[10px] md:text-xs text-[var(--color-text-muted)]">Tab: autocomplete | ↑↓: history</span>
+        <span className="text-[10px] md:text-xs text-[var(--color-terminal-dim)]">zsh</span>
       </div>
     </div>
   );
