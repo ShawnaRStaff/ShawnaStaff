@@ -1,4 +1,4 @@
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt, FaLock } from "react-icons/fa";
 import { ProjectType } from "@/app/components/projects/projects";
 
 export default function ProjectCard({ project }: { project: ProjectType }): React.JSX.Element {
@@ -20,14 +20,16 @@ export default function ProjectCard({ project }: { project: ProjectType }): Reac
         </div>
       </div>
       <div className="px-4 md:px-5 pb-4 flex gap-4 border-t border-[var(--color-border)] pt-3">
-        <a
-          href={project.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[var(--color-cyan)] hover:text-glow-cyan transition-all flex items-center gap-1.5 text-xs md:text-sm"
-        >
-          <FaGithub /> Code
-        </a>
+        {project.githubUrl && (
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--color-cyan)] hover:text-glow-cyan transition-all flex items-center gap-1.5 text-xs md:text-sm"
+          >
+            <FaGithub /> Code
+          </a>
+        )}
         {project.liveUrl && (
           <a
             href={project.liveUrl}
@@ -35,8 +37,13 @@ export default function ProjectCard({ project }: { project: ProjectType }): Reac
             rel="noopener noreferrer"
             className="text-[var(--color-amber)] hover:text-glow-amber transition-all flex items-center gap-1.5 text-xs md:text-sm"
           >
-            <FaExternalLinkAlt size={10} /> Demo
+            <FaExternalLinkAlt size={10} /> {project.liveLabel ?? "Demo"}
           </a>
+        )}
+        {!project.githubUrl && !project.liveUrl && (
+          <span className="text-[var(--color-text-muted)] flex items-center gap-1.5 text-xs md:text-sm">
+            <FaLock size={10} /> Private
+          </span>
         )}
       </div>
     </div>
