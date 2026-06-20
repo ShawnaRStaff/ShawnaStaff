@@ -29,7 +29,9 @@ export const COMMANDS: CommandsType = {
 <div style="${c.a}" class="mb-2">[COMMANDS]</div>
 <table class="text-left text-xs md:text-sm">
   <tr><td style="${c.g}">help</td><td style="${c.m}" class="pl-6">Display available commands</td></tr>
+  <tr><td style="${c.g}">whoami</td><td style="${c.m}" class="pl-6">Quick intro</td></tr>
   <tr><td style="${c.g}">about</td><td style="${c.m}" class="pl-6">Learn about me</td></tr>
+  <tr><td style="${c.g}">ls</td><td style="${c.m}" class="pl-6">List sections</td></tr>
   <tr><td style="${c.g}">skills</td><td style="${c.m}" class="pl-6">View technical skills</td></tr>
   <tr><td style="${c.g}">projects</td><td style="${c.m}" class="pl-6">Browse portfolio</td></tr>
   <tr><td style="${c.g}">experience</td><td style="${c.m}" class="pl-6">Work history</td></tr>
@@ -77,17 +79,17 @@ Full-stack engineer, database to deployment:<br/>
 <div style="${c.a}" class="mb-2">[PROJECTS]</div>
 <div class="text-xs md:text-sm">
 <div style="${c.g}" class="mb-1">01. IAM-GO / Nexus</div>
-<div style="${c.m}" class="ml-4 mb-2">Patent-pending graph IAM (US Patent 10,873,598 B1)</div>
-<div style="${c.g}" class="mb-1">02. Buckler IDD</div>
-<div style="${c.m}" class="ml-4 mb-2">Fintech compliance & due diligence platform (Dev Lead)</div>
+<div style="${c.m}" class="ml-4 mb-2">Patent-pending graph IAM (Go, Neo4j, ML trust scoring)</div>
+<div style="${c.g}" class="mb-1">02. Buckler Due Diligence</div>
+<div style="${c.m}" class="ml-4 mb-2">Investment analytics & due diligence platform (Dev Lead)</div>
 <div style="${c.g}" class="mb-1">03. Cascade Inversion Cosmology</div>
 <div style="${c.m}" class="ml-4 mb-2">SOC physics simulations on a self-healing AWS spot fleet</div>
-<div style="${c.g}" class="mb-1">04. Homelab Infrastructure</div>
-<div style="${c.m}" class="ml-4 mb-2">30+ production services, Docker, monitoring, CI/CD</div>
+<div style="${c.g}" class="mb-1">04. Homelab — Production Infrastructure</div>
+<div style="${c.m}" class="ml-4 mb-2">31+ production services, Docker, monitoring, CI/CD</div>
 <div style="${c.g}" class="mb-1">05. Cipher</div>
 <div style="${c.m}" class="ml-4 mb-2">AI assistant w/ persistent memory + QLoRA fine-tuning</div>
-<div style="${c.g}" class="mb-1">06. create-sqlalchemy-app</div>
-<div style="${c.m}" class="ml-4">Published PyPI CLI - scaffolds FastAPI projects</div>
+<div style="${c.g}" class="mb-1">06. Dead Life Inc v2</div>
+<div style="${c.m}" class="ml-4">Multi-tenant band commerce & streaming platform</div>
 </div></div>`,
     }),
   },
@@ -118,6 +120,47 @@ Full-stack engineer, database to deployment:<br/>
   <tr><td style="${c.c}">GitHub</td><td style="${c.m}" class="pl-4">github.com/ShawnaRStaff</td></tr>
   <tr><td style="${c.c}">LinkedIn</td><td style="${c.m}" class="pl-4">linkedin.com/in/shawnastaff</td></tr>
 </table></div>`,
+    }),
+  },
+  whoami: {
+    description: "Quick intro",
+    action: () => ({
+      isHtml: true,
+      output: `<div class="pt-2 pb-2 text-xs md:text-sm" style="${c.m}">
+<span style="${c.g}">Shawna Staff</span> — full-stack engineer. Patent-pending inventor, homelab operator,<br/>
+builder of things that ship. Type <span style="${c.a}">projects</span> to see the receipts.
+</div>`,
+    }),
+  },
+  ls: {
+    description: "List sections",
+    action: () => ({
+      isHtml: true,
+      output: `<div class="pt-2 pb-2 text-xs md:text-sm">
+<span style="${c.c}">about/</span>  <span style="${c.c}">skills/</span>  <span style="${c.c}">projects/</span>  <span style="${c.c}">experience/</span>  <span style="${c.c}">contact/</span>
+<div style="${c.m}" class="mt-1">Run a section name to open it.</div>
+</div>`,
+    }),
+  },
+  sudo: {
+    description: "Superuser access",
+    action: () => ({
+      isHtml: true,
+      output: `<div class="pt-2 pb-2 text-xs md:text-sm">
+<span style="color:#ff5555">[sudo]</span> <span style="${c.m}">password for visitor:</span><br/>
+<span style="${c.a}">Nice try.</span> <span style="${c.m}">You don't have permission to do that... yet. Try</span> <span style="${c.g}">hire</span> <span style="${c.m}">instead. 😏</span>
+</div>`,
+    }),
+  },
+  hire: {
+    description: "Let's work together",
+    action: () => ({
+      isHtml: true,
+      output: `<div class="pt-2 pb-2 text-xs md:text-sm" style="${c.m}">
+<span style="${c.g}">></span> Now that's the right command.<br/>
+<span style="${c.g}">></span> Email:    <span style="${c.c}">shawnastaff@gmail.com</span><br/>
+<span style="${c.g}">></span> LinkedIn: <span style="${c.c}">linkedin.com/in/shawnastaff</span>
+</div>`,
     }),
   },
   clear: {
