@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     siteName: "Shawna Staff Portfolio",
     images: [
       {
-        url: "/og-image.jpg", 
+        url: "/og-image.png", 
         width: 1200,
         height: 630,
         alt: "Shawna Staff - Software Engineer",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Shawna Staff | Software Engineer",
     description: "Software engineer specializing in full-stack development with expertise in React, TypeScript, Python, and .NET.",
-    images: ["/og-image.jpg"], 
+    images: ["/og-image.png"], 
     creator: "@shawnastaffreal",
   },
   icons: {
