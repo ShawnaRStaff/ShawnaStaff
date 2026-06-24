@@ -23,7 +23,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://shawnastaff.dev'),
   title: "Shawna Staff | Software Engineer",
-  description: "Software engineer specializing in full-stack development with expertise in React, TypeScript, Python, and .NET. View my projects and experience.",
+  description: "Full-stack engineer, end-to-end. Patent-pending graph IAM, production AI/LLM systems, and cloud infrastructure — from database to deployment.",
   keywords: [
     "Shawna Staff", 
     "software engineer", 
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://shawnastaff.dev", 
     title: "Shawna Staff | Software Engineer",
-    description: "Software engineer specializing in full-stack development with expertise in React, TypeScript, Python, and .NET.",
+    description: "Full-stack engineer, end-to-end. Patent-pending graph IAM, production AI/LLM systems, and cloud infrastructure — from database to deployment.",
     siteName: "Shawna Staff Portfolio",
     images: [
       {
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Shawna Staff | Software Engineer",
-    description: "Software engineer specializing in full-stack development with expertise in React, TypeScript, Python, and .NET.",
+    description: "Full-stack engineer, end-to-end. Patent-pending graph IAM, production AI/LLM systems, and cloud infrastructure — from database to deployment.",
     images: ["/og-image.png"], 
     creator: "@shawnastaffreal",
   },
